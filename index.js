@@ -1,6 +1,9 @@
 #! /usr/bin/env node
 
 const chalk = require('chalk')
+var mime = require('mime-types')
+var path = require('path');
+
 var parseFile = require('./lib/parseFile.js');
 
 
@@ -30,6 +33,17 @@ const args = program.args;
 if ( argPaths.length > 0 ) {
 	argPaths.forEach(p => {
 		console.log( chalk.bold(`Processing ${p}`) )
-		parseFile(p)
+		
+		mType = mime.lookup(p);
+		if ( mType ) {	// valid mime type
+			if ( mType == "image/jpeg" ) {
+				console.log( chalk.red.bold(`Found JPEG!`) )
+			}
+		} else {
+			fExt = path.extname(p);
+			if ( fExt == ".jumbf" ) {
+				parseFile(p)
+			}
+		}
 	});
 }

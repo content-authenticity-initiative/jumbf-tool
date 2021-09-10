@@ -9,13 +9,14 @@
   "author": "lrosenth@adobe.com (Leonard Rosenthol)",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^4.1.2",
-    "commander": "^8.2.0",
     "bitparser": "^0.1.1",
     "bitwise": "^2.1.0",
     "cbor": "^8.0.0",
+    "chalk": "^4.1.2",
+    "commander": "^8.2.0",
     "intobuffer": "^0.1.2",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "mime-types": "^2.1.32"
   },
   "bin": {
     "jumbf": "index.js"
