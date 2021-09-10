@@ -1,7 +1,9 @@
 #! /usr/bin/env node
 
-// pretty printing output...
 const chalk = require('chalk')
+var parseFile = require('./lib/parseFile.js');
+
+
 
 var argPaths = []
 
@@ -21,10 +23,13 @@ program.parse(process.argv)
 const options = program.opts();
 const args = program.args;
 
-console.log('Options: ', options);
-console.log('Paths: ', argPaths);
-console.log('Remaining arguments: ', args);
+// console.log('Options: ', options);
+// console.log('Paths: ', argPaths);
+// console.log('Remaining arguments: ', args);
 
 if ( argPaths.length > 0 ) {
-
+	argPaths.forEach(p => {
+		console.log( chalk.bold(`Processing ${p}`) )
+		parseFile(p)
+	});
 }
