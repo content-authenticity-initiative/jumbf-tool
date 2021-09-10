@@ -5,8 +5,7 @@ var mime = require('mime-types')
 var path = require('path');
 
 var parseFile = require('./lib/parseFile.js');
-
-
+var parseJPEG = require('./lib/parseJPEG.js');
 
 var argPaths = []
 
@@ -37,7 +36,8 @@ if ( argPaths.length > 0 ) {
 		mType = mime.lookup(p);
 		if ( mType ) {	// valid mime type
 			if ( mType == "image/jpeg" ) {
-				console.log( chalk.red.bold(`Found JPEG!`) )
+				console.log( chalk.red.bold(`Found JPEG!`) );
+				parseJPEG(p)
 			}
 		} else {
 			fExt = path.extname(p);
